@@ -66,7 +66,7 @@ fastRandBs len = do
     then return preChunks
     else do
       rSeed <- slowRandBs $ 16
-      let hashes = tail $ iterate (hash $ 8*perChunk) rSeed
+      let hashes = tail $ iterate ( hash (8*perChunk) . BS.take 32 ) rSeed
       return $ BS.concat $ preChunks : take rounds hashes
 
 -- | Generate binary data slowly. This generates a list of Word8s, and then

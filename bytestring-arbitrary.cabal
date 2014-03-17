@@ -2,7 +2,7 @@
 --  documentation, see http://haskell.org/cabal/users-guide/
 
 name:                bytestring-arbitrary
-version:             0.0.1
+version:             0.0.2
 synopsis:            Arbitrary instances for ByteStrings
 -- description:         
 homepage:            https://github.com/tsuraan/bytestring-arbitrary

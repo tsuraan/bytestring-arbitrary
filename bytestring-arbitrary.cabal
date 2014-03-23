@@ -20,8 +20,8 @@ library
   exposed-modules:     Data.ByteString.Arbitrary
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base >=4.6 && <4.7
-                     , bytestring >=0.10 && <0.11
+  build-depends:       base >=4.6 && <4.8
+                     , bytestring >=0.10 && <0.12
                      , cryptohash
                      , QuickCheck
   hs-source-dirs:      src
@@ -32,8 +32,8 @@ benchmark benchmark-all
   type:                exitcode-stdio-1.0
   hs-source-dirs:      benches
   main-is:             bench.hs
-  build-depends:       base >=4.6 && <4.7
-                     , bytestring >=0.10 && <0.11
+  build-depends:       base >=4.6 && <4.8
+                     , bytestring >=0.10 && <0.12
                      , cryptohash
                      , QuickCheck
                      , criterion

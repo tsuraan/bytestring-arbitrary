@@ -7,18 +7,18 @@ import Data.ByteString.Arbitrary
 main :: IO ()
 main = defaultMain
   [ bgroup "ArbByteString"
-    [ bench "arbitrary"    $ action (arbitrary :: Gen ArbByteString)
-    , bench "arbitrary1M"  $ action (arbitrary :: Gen ArbByteString1M)
-    , bench "arbitrary10M" $ action (arbitrary :: Gen ArbByteString10M)
+    [ bench "arbitrary"    $ nfIO $ action (arbitrary :: Gen ArbByteString)
+    , bench "arbitrary1M"  $ nfIO $ action (arbitrary :: Gen ArbByteString1M)
+    , bench "arbitrary10M" $ nfIO $ action (arbitrary :: Gen ArbByteString10M)
     , bgroup "fastRandBs"
-      [ bench "10B" $ action (fastRandBs 10)
-      , bench "1KB" $ action (fastRandBs 1024)
-      , bench "1MB" $ action (fastRandBs (1024*1024))
+      [ bench "10B" $ nfIO $ action (fastRandBs 10)
+      , bench "1KB" $ nfIO $ action (fastRandBs 1024)
+      , bench "1MB" $ nfIO $ action (fastRandBs (1024*1024))
       ]
     , bgroup "slowRandBs"
-      [ bench "10B" $ action (slowRandBs 10)
-      , bench "1KB" $ action (slowRandBs 1024)
-      , bench "10KB" $ action (slowRandBs 10240)
+      [ bench "10B" $ nfIO $ action (slowRandBs 10)
+      , bench "1KB" $ nfIO $ action (slowRandBs 1024)
+      , bench "10KB" $ nfIO $ action (slowRandBs 10240)
       ]
     ]
   ]
